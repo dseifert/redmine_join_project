@@ -2,7 +2,7 @@ class ProjectJoinRequestMailer < Mailer
 
   def join_request(project_join_request)
     
-    users = project_join_request.project.notified_users.collect do |user|
+    users = project_join_request.project.users.collect do |user|
       if user.allowed_to?(:approve_project_join_requests, project_join_request.project)
         user.mail unless user.pref.block_join_project_requests?
       end
