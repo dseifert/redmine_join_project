@@ -12,7 +12,7 @@ class ProjectJoinRequestMailer < Mailer
     subject "[#{project_join_request.project.name}] #{l(:join_project_text_request_to_join)}"
 
     body({:project_join_request => project_join_request})
-    render_multipart('join_request', body)
+    render_multipart('vendor/plugins/redmine_join_project/app/views/project_join_request_mailer/join_request', body)
   end
 
   def declined_request(project_join_request)
@@ -20,6 +20,6 @@ class ProjectJoinRequestMailer < Mailer
     subject "[#{project_join_request.project.name}] #{l(:join_project_text_declined_request_to_join_this_project)}"
     
     body({:project_join_request => project_join_request})
-    render_multipart('declined_request', body)
+    render_multipart('vendor/plugins/redmine_join_project/app/views/project_join_request_mailer/declined_request', body)
   end
 end
